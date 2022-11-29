@@ -39,15 +39,15 @@ export default function Navbar(props) {
         >
           <ul className="navbar-nav mb-2 mb-lg-0 mx-auto">
             <li className="nav-item ">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/">
                 Home
               </a>
             </li>
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <a href="/about" className="nav-link">
                 {props.aboutText}
               </a>
-            </li> */}
+            </li>
           </ul>
           {/* <form className="d-flex" role="search">
             <input

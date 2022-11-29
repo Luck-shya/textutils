@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-// import About from "./components/About";
+import About from "./components/About";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
@@ -41,41 +41,41 @@ function App() {
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
-      document.title = "TextUtils - Light Mode";
+      document.title =
+        "Try TextUtils - word counter | character counter | remove extra spaces";
       showAlert("Light mode has been enabled", "success");
     }
   };
 
   return (
     <>
-      {/* <Router> */}
-      <Navbar
-        title="TextUtils"
-        mode={mode}
-        toggleMode={toggleMode}
-        toggle2Mode={toggle2Mode}
-      />
-      <Alert alert={alert} />
+      <Router>
+        <Navbar
+          title="TextUtils"
+          mode={mode}
+          toggleMode={toggleMode}
+          toggle2Mode={toggle2Mode}
+        />
+        <Alert alert={alert} />
 
-      <div className="container my-3">
-        {/* <Routes>
+        <div className="container my-3">
+          <Routes>
             <Route
               exact
               path="/"
               element={
-
+                <TextForm
+                  heading="Try TextUtils - word counter | character counter | remove extra spaces"
+                  mode={mode}
+                  showAlert={showAlert}
+                />
               }
-            /> */}
-        <TextForm
-          heading="Enter the text to analyze below"
-          mode={mode}
-          showAlert={showAlert}
-        />
+            />
 
-        {/* <Route exact path="/about" element={<About />} /> */}
-        {/* </Routes> */}
-      </div>
-      {/* </Router> */}
+            <Route exact path="/about" element={<About mode={mode} />} />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
