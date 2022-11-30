@@ -40,7 +40,7 @@ export default function Navbar(props) {
         >
           <ul className="navbar-nav mb-2 mb-lg-0 mx-auto">
             <li className="nav-item ">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link className="nav-link " aria-current="page" to="/">
                 Home
               </Link>
             </li>

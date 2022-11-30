@@ -2,19 +2,16 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const handleUpClick = () => {
-    // console.log("Uppercase was clicked");
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("Converted to Uppercase!  ", "success");
   };
   const handleLoClick = () => {
-    // console.log("Lowercase was clicked");
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("Converted to Lowercase!", "success");
   };
   const handlealtClick = () => {
-    // console.log("Alternate was clicked");
     let newText = "";
     for (let i = 0; i < text.length; i++) {
       if (i % 2 === 0) {
@@ -27,21 +24,16 @@ export default function TextForm(props) {
     props.showAlert("Converted to Alternatecase!", "success");
   };
   const handleOnChange = (event) => {
-    // console.log("text was changed");
     let newText = event.target.value;
     setText(newText);
   };
   const handleClearClick = () => {
-    // console.log("Uppercase was clicked");
     let newText = "";
     setText(newText);
     props.showAlert("Cleared Text!", "success");
   };
   const handlecopy = () => {
-    var text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text);
     props.showAlert("Copied to Clipboard!", "success");
   };
 
@@ -129,7 +121,7 @@ export default function TextForm(props) {
         <h1>Your text Summary</h1>
         <p>
           {
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }{" "}
@@ -137,7 +129,7 @@ export default function TextForm(props) {
         </p>
         <p>
           {0.008 *
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length}{" "}
           Minutes Read
