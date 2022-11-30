@@ -16,7 +16,7 @@ export default function Navbar(props) {
       }`}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/textutils">
           {props.title}
         </a>
         <button
@@ -39,12 +39,16 @@ export default function Navbar(props) {
         >
           <ul className="navbar-nav mb-2 mb-lg-0 mx-auto">
             <li className="nav-item ">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="/textutils"
+              >
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a href="/about" className="nav-link">
+              <a href="/textutils/about" className="nav-link">
                 {props.aboutText}
               </a>
             </li>
